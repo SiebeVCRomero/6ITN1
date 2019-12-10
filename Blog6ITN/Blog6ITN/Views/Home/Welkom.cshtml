@@ -1,0 +1,82 @@
+﻿@using Blog6ITN.Models
+@{
+    List<Nieuws> nieuws = ViewBag.Nieuws;
+    List<Gip> gips = ViewBag.Gips;
+}
+
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <img src="~/Content/Images/logo_header.png" />
+            </div>
+        </div>
+    </div>
+</header>
+
+@* https://www.w3schools.com/howto/howto_css_cards.asp *@
+<style>
+    .card {
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    /* Add some padding inside the card container */
+    .container {
+        padding: 2px 16px;
+    }
+</style>
+<h2>Nieuwsflash</h2>
+@foreach (var item in nieuws)
+{
+    byte i = 0;
+    <div class="card" style="margin-top:50px">
+        <div class="container">
+            <h4><b>@item.Titel</b></h4>
+            <p>@item.Inhoud.Substring(0, 200) ... </p>
+            <p>@Html.ActionLink("Lees meer..", "Nieuws", new { id = item.Id })</p>
+        </div>
+    </div>
+
+    i++;
+    if (i == 4)
+    {
+        break;
+    }
+}
+
+<h2>Gips</h2>
+<table class="table">
+    <tr>
+        <th>
+            Naam
+        </th>
+        <th>
+            Intro
+        </th>
+        <th>
+            Link
+        </th>
+    </tr>
+</table>
+
+@foreach (var item in gips)
+{
+    <tr>
+        <td>
+            @item.Naam
+        </td>
+        <td>
+            @item.Intro
+        </td>
+        <td>
+            <p>@Html.ActionLink("Details", "Gips", new { id = item.Id })</p>
+        </td>
+    </tr>
+}

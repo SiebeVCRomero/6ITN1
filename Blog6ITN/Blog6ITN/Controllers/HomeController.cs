@@ -4,26 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Blog6ITN.Models;
+
 namespace Blog6ITN.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
+        BiibContext db = new BiibContext();
 
-        public ActionResult About()
+        public ActionResult Welkom()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            List<Nieuws> nieuws = db.Nieuws.ToList();
+            ViewBag.Nieuws = nieuws;
+            List<Gip> gips = db.Gips.ToList();
+            ViewBag.Gips = gips;
 
             return View();
         }

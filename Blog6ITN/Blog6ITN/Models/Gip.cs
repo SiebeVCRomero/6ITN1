@@ -12,6 +12,8 @@ namespace Blog6ITN.Models
         public int Id { get; set; }
         public string Naam { get; set; }
         public string Intro { get; set; }
+        public string Uitvoerders { get; set; }
         public DateTime LaatseAanpassing { get; set; }
+        public string PersoonLaatsteAanpassing { get; set; }
     }
 }

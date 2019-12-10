@@ -10,7 +10,7 @@ namespace Blog6ITN.Models
     {
         [Key()]
         public int Id { get; set; }
-        public string Naam { get; set; }
+        public string Titel { get; set; }
         public string Inhoud { get; set; }
         public DateTime PublicatieDatum { get; set; }
         public string Auteur { get; set; }
