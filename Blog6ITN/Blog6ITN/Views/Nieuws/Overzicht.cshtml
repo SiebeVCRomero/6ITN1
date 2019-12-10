@@ -10,11 +10,10 @@
 <h2>Index</h2>
 @if (User.Identity.IsAuthenticated)
 {
-
     if (currentUser.Rol == "Admin")
     {
         <p>
-            @Html.ActionLink("Create New", "Create")
+            @Html.ActionLink("Toevoegen", "Toevoegen")
         </p>
     }
 }
@@ -32,7 +31,14 @@
         <th>
             @Html.DisplayNameFor(model => model.Auteur)
         </th>
-        <th></th>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            if (currentUser.Rol == "Admin")
+            {
+                <th></th>
+            }
+        }
     </tr>
 
     @foreach (var item in Model)
@@ -50,12 +56,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Auteur)
             </td>
+            @if (User.Identity.IsAuthenticated)
+            {
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+                if (currentUser.Rol == "Admin")
+                {
+                    <td>
+                        @Html.ActionLink("Aanpassen", "Aanpassen", new { id = item.Id }) |
+                        @Html.ActionLink("Verwijderen", "Verwijderen", new { id = item.Id })
+                    </td>
+                }
+            }
         </tr>
     }
 

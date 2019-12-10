@@ -1,7 +1,9 @@
 ﻿@model Blog6ITN.Models.Gip
-
+@using Blog6ITN.Models
 @{
     ViewBag.Title = "Details";
+    BiibContext db = new BiibContext();
+    User currentUser = db.Users.ToList().Find(o => o.Email.ToLower() == User.Identity.Name.ToLower());
 }
 
 <h2>Details</h2>
@@ -37,6 +39,12 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (currentUser.Rol == "Admin")
+        {
+            @Html.ActionLink("Aanpassen", "Aanpassen", new { id = Model.Id })
+        }
+    }
+    @Html.ActionLink("Terug naar overzicht", "Overzicht")
 </p>

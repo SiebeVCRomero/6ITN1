@@ -16,6 +16,7 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
     </style>
 </head>
 <body>
@@ -37,8 +38,21 @@
                     </li>
                     <li class="nav-item" style="margin-right:15px">@Html.ActionLink("Home", "Welkom", "Home")</li>
                     <li class="nav-item" style="margin-right:15px">@Html.ActionLink("Nieuws", "Overzicht", "Nieuws")</li>
+
                     <li class="nav-item" style="margin-right:15px">@Html.ActionLink("Gips", "Overzicht", "Gips")</li>
 
+                    
+                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">@Html.ActionLink("GpSchool", "Details", "Gips", new { id = 2 })</a>
+                        <a class="dropdown-item" href="#">@Html.ActionLink("CubieBot", "Details", "Gips", new { id = 1 })</a>
+                    </div>
+                </div>
+                <ul>
                     <li class="nav-item" style="margin-right:15px">@Html.Partial("_LoginPartial")</li>
                 </ul>
             </div>

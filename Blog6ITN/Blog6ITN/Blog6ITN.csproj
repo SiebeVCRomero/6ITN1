@@ -170,7 +170,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BeheerController.cs" />
     <Compile Include="Controllers\GipsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NieuwsController.cs" />
@@ -284,20 +283,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Nieuws\Create.cshtml" />
-    <Content Include="Views\Nieuws\Delete.cshtml" />
+    <Content Include="Views\Nieuws\Toevoegen.cshtml" />
+    <Content Include="Views\Nieuws\Verwijderen.cshtml" />
     <Content Include="Views\Nieuws\Details.cshtml" />
-    <Content Include="Views\Nieuws\Edit.cshtml" />
+    <Content Include="Views\Nieuws\Aanpassen.cshtml" />
     <Content Include="Views\Nieuws\Overzicht.cshtml" />
-    <Content Include="Views\Gips\Create.cshtml" />
-    <Content Include="Views\Gips\Delete.cshtml" />
+    <Content Include="Views\Gips\Toevoegen.cshtml" />
     <Content Include="Views\Gips\Details.cshtml" />
-    <Content Include="Views\Gips\Edit.cshtml" />
+    <Content Include="Views\Gips\Aanpassen.cshtml" />
     <Content Include="Views\Gips\Overzicht.cshtml" />
-    <Content Include="Views\Beheer\Nieuws\Edit.cshtml" />
-    <Content Include="Views\Beheer\Nieuws\Create.cshtml" />
-    <Content Include="Views\Beheer\Nieuws\Delete.cshtml" />
-    <Content Include="Views\Beheer\Nieuws\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -36,7 +36,7 @@ namespace Blog6ITN.Controllers
         }
 
         // GET: Nieuws/Create
-        public ActionResult Create()
+        public ActionResult Toevoegen()
         {
             return View();
         }
@@ -64,7 +64,7 @@ namespace Blog6ITN.Controllers
         }
 
         // GET: Nieuws/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Aanpassen(int? id)
         {
             if (id == null)
             {
@@ -75,6 +75,7 @@ namespace Blog6ITN.Controllers
             {
                 return HttpNotFound();
             }
+            nieuws.PublicatieDatum = DateTime.Now;
             return View(nieuws);
         }
 
@@ -95,7 +96,7 @@ namespace Blog6ITN.Controllers
         }
 
         // GET: Nieuws/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Verwijderen(int? id)
         {
             if (id == null)
             {

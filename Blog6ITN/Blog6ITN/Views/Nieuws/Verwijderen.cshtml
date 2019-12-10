@@ -1,7 +1,7 @@
 ﻿@model Blog6ITN.Models.Nieuws
 @using Blog6ITN.Models
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
     BiibContext db = new BiibContext();
     User currentUser = db.Users.ToList().Find(o => o.Email.ToLower() == User.Identity.Name.ToLower());
 }
@@ -9,8 +9,9 @@
 {
     if (currentUser.Rol == "Admin")
     {
-        <h2>Details</h2>
+        <h2>Verwijderen</h2>
 
+        <h3>Ben je zeker dat je dit wilt verwijderen?</h3>
         <div>
             <h4>Nieuws</h4>
             <hr />
@@ -48,12 +49,17 @@
                 </dd>
 
             </dl>
-        </div>
-        <p>
 
-            @Html.ActionLink("Aanpassen", "Aanpassen", new { id = Model.Id })
-            @Html.ActionLink("Terug naar overzicht", "Overzicht")
-        </p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Terug naar lijst", "Overzicht")
+                </div>
+            }
+        </div>
     }
 }
 else
@@ -62,3 +68,4 @@ else
     <h2>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</h2>
 
 }
+

@@ -33,11 +33,11 @@ namespace Blog6ITN.Controllers
             {
                 return HttpNotFound();
             }
-            return View(gip);
+            return View("Gips/Details", gip);
         }
 
         // GET: Gips/Create
-        public ActionResult Create()
+        public ActionResult Toevoegen()
         {
             return View();
         }
@@ -60,7 +60,7 @@ namespace Blog6ITN.Controllers
         }
 
         // GET: Gips/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Aanpassen(int? id)
         {
             if (id == null)
             {
@@ -83,37 +83,14 @@ namespace Blog6ITN.Controllers
         {
             if (ModelState.IsValid)
             {
+                gip.LaatseAanpassing = DateTime.Now;
+                gip.PersoonLaatsteAanpassing = User.Identity.Name;
+
                 db.Entry(gip).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Overzicht");
             }
             return View(gip);
-        }
-
-        // GET: Gips/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Gip gip = db.Gips.Find(id);
-            if (gip == null)
-            {
-                return HttpNotFound();
-            }
-            return View(gip);
-        }
-
-        // POST: Gips/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Gip gip = db.Gips.Find(id);
-            db.Gips.Remove(gip);
-            db.SaveChanges();
-            return RedirectToAction("Overzicht");
         }
 
         protected override void Dispose(bool disposing)

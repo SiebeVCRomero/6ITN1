@@ -3,7 +3,7 @@
 
 @{
     List<Gip> gips = ViewBag.Gips;
-    gips = gips.OrderByDescending(o => o.LaatseAanpassing).ToList();
+    gips = gips.OrderBy(o => o.Naam).ToList();
 }
 
 <h2>Gips</h2>
@@ -37,7 +37,7 @@
             <h4><b>@item.Naam</b></h4>
             <p>@item.Intro </p>
             <p>@item.LaatseAanpassing.ToLongDateString()</p>
-            <p>@Html.ActionLink("Details", "Details", new { id = item.Id }) </p>
+            <p>@Html.ActionLink("Details", "Details", new { id = item.Id })</p>
         </div>
     </div>
 }
