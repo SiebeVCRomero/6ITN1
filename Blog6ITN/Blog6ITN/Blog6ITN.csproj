@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BeheerController.cs" />
     <Compile Include="Controllers\GipsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NieuwsController.cs" />
@@ -188,10 +189,23 @@
     <Compile Include="Migrations\201912100950526_AanpassingModel.designer.cs">
       <DependentUpon>201912100950526_AanpassingModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912101005206_UsersEnRollen.cs" />
+    <Compile Include="Migrations\201912101005206_UsersEnRollen.designer.cs">
+      <DependentUpon>201912101005206_UsersEnRollen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912101013185_NaamVeranderd1.cs" />
+    <Compile Include="Migrations\201912101013185_NaamVeranderd1.designer.cs">
+      <DependentUpon>201912101013185_NaamVeranderd1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912101019387_UserAanpassing.cs" />
+    <Compile Include="Migrations\201912101019387_UserAanpassing.designer.cs">
+      <DependentUpon>201912101019387_UserAanpassing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BiibContext.cs" />
     <Compile Include="Models\Gip.cs" />
     <Compile Include="Models\Nieuws.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -280,6 +294,10 @@
     <Content Include="Views\Gips\Details.cshtml" />
     <Content Include="Views\Gips\Edit.cshtml" />
     <Content Include="Views\Gips\Overzicht.cshtml" />
+    <Content Include="Views\Beheer\Nieuws\Edit.cshtml" />
+    <Content Include="Views\Beheer\Nieuws\Create.cshtml" />
+    <Content Include="Views\Beheer\Nieuws\Delete.cshtml" />
+    <Content Include="Views\Beheer\Nieuws\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +322,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912100950526_AanpassingModel.resx">
       <DependentUpon>201912100950526_AanpassingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912101005206_UsersEnRollen.resx">
+      <DependentUpon>201912101005206_UsersEnRollen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912101013185_NaamVeranderd1.resx">
+      <DependentUpon>201912101013185_NaamVeranderd1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912101019387_UserAanpassing.resx">
+      <DependentUpon>201912101019387_UserAanpassing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

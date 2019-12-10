@@ -50,9 +50,14 @@ namespace Blog6ITN.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Pub datum aanpassen
+
+                nieuws.PublicatieDatum = DateTime.Now;
+                nieuws.Auteur = User.Identity.Name;
+
                 db.Nieuws.Add(nieuws);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Overzicht");
             }
 
             return View(nieuws);
@@ -84,7 +89,7 @@ namespace Blog6ITN.Controllers
             {
                 db.Entry(nieuws).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Overzicht");
             }
             return View(nieuws);
         }
@@ -112,7 +117,7 @@ namespace Blog6ITN.Controllers
             Nieuws nieuws = db.Nieuws.Find(id);
             db.Nieuws.Remove(nieuws);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Overzicht");
         }
 
         protected override void Dispose(bool disposing)
