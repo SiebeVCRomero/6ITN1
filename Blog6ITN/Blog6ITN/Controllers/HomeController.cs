@@ -8,7 +8,6 @@ using Blog6ITN.Models;
 
 namespace Blog6ITN.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         BiibContext db = new BiibContext();

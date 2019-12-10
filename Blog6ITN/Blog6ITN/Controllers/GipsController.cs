@@ -22,7 +22,7 @@ namespace Blog6ITN.Controllers
         }
 
         // GET: Gips/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id = 0)
         {
             if (id == null)
             {
@@ -33,7 +33,7 @@ namespace Blog6ITN.Controllers
             {
                 return HttpNotFound();
             }
-            return View("Gips/Details", gip);
+            return View("Details", gip);
         }
 
         // GET: Gips/Create
@@ -47,10 +47,12 @@ namespace Blog6ITN.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Naam,Intro,LaatseAanpassing")] Gip gip)
+        public ActionResult Toevoegen([Bind(Include = "Id,Naam,Intro")] Gip gip)
         {
             if (ModelState.IsValid)
             {
+                gip.LaatseAanpassing = DateTime.Now;
+                gip.PersoonLaatsteAanpassing = User.Identity.Name;
                 db.Gips.Add(gip);
                 db.SaveChanges();
                 return RedirectToAction("Overzicht");

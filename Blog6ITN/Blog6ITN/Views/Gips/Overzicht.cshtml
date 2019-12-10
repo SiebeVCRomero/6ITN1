@@ -4,13 +4,20 @@
 @{
     List<Gip> gips = ViewBag.Gips;
     gips = gips.OrderBy(o => o.Naam).ToList();
+    BiibContext db = new BiibContext();
+    User currentUser = db.Users.ToList().Find(o => o.Email.ToLower() == User.Identity.Name.ToLower());
 }
 
 <h2>Gips</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+    if (currentUser.Rol == "Admin")
+    {
+        <p>
+            @Html.ActionLink("Toevoegen", "Toevoegen")
+        </p>
+    }
+}
 
 <style>
     .card {

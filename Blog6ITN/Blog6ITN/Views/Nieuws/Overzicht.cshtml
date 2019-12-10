@@ -7,7 +7,8 @@
     User currentUser = db.Users.ToList().Find(o => o.Email.ToLower() == User.Identity.Name.ToLower());
 }
 
-<h2>Index</h2>
+<h2>Overzicht</h2>
+
 @if (User.Identity.IsAuthenticated)
 {
     if (currentUser.Rol == "Admin")
@@ -62,7 +63,7 @@
                 if (currentUser.Rol == "Admin")
                 {
                     <td>
-                        @Html.ActionLink("Aanpassen", "Aanpassen", new { id = item.Id }) |
+                        @Html.ActionLink("Aanpassen", "Aanpassen", new { id = item.Id })
                         @Html.ActionLink("Verwijderen", "Verwijderen", new { id = item.Id })
                     </td>
                 }

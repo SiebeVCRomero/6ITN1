@@ -36,7 +36,7 @@
 @foreach (var item in nieuws)
 {
     byte i = 0;
-    <div class="card" style="margin-top:50px">
+    <div class="card" style="margin:25px 0px;">
         <div class="container">
             <h4><b>@item.Titel</b></h4>
             <p>@item.Inhoud.Substring(0, 200) ... </p>
@@ -75,8 +75,8 @@
         <td>
             @item.Intro
         </td>
-        <td>
-            <p>@Html.ActionLink("Details", "Gips", new { id = item.Id })</p>
-        </td>
+        @*<td> link werkt niet
+            <p>@Html.ActionLink("../Gips/Details/"+item.Id, "Gips", new { id = item.Id })</p>
+        </td>*@
     </tr>
 }
