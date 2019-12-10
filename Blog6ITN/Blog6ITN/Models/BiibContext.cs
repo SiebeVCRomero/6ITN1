@@ -15,5 +15,9 @@ namespace Blog6ITN.Models
 
         public DbSet<Nieuws> Nieuws { get; set; }
         public DbSet<Gip> Gips { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("6ITN1");
+        }
     }
 }
